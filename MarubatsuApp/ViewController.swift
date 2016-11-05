@@ -68,11 +68,12 @@ class ViewController: UIViewController {
     func showQuestion() {
         let question = questions[currentQuestionNum]
         
-        
+        //問題番号の表示(グローバル変数のcurrentQuestionNumを使用)
         let number:Int = currentQuestionNum + 1
-        var numberStr = String(number)
+        var numberStr = String(number)  //ラベルに表示するためにString型に変換
         currentNumber.text = "現在の問題番号:"+numberStr
         
+        //問題文の表示
         if let que = question["question"] as? String {
             questionLabel.text = que
             
@@ -95,12 +96,13 @@ class ViewController: UIViewController {
         if let ans = question["answer"] as? Bool {
             
             if yourAnswer == ans {
-                 rightOrWrong.text = "前の問題→正解!!!"
+                 rightOrWrong.text = "前の問題→正解!!!" //ラベルに直接放り込む
+                
                 // currentQuestionNumを1足して次の問題に進む
                 currentQuestionNum += 1
                 
             } else {
-                rightOrWrong.text = "不正解"
+                rightOrWrong.text = "不正解" //ラベルに直接放り込む
             }
             
         }else {
